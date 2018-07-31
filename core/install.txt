@@ -1,0 +1,4 @@
+Configuração MongoDB
+https://appdividend.com/2018/05/10/laravel-mongodb-crud-tutorial-with-example/#Laravel_MongoDB_CRUD_Tutorial
+https://pecl.php.net/package/mongodb/1.5.1/windows
+extension=php_mongodb.dll
