@@ -30,16 +30,17 @@ let mediaHandler = () => {
 
 router.beforeEach((to, from, next) => {
   store.commit('setLoading', true)
-  if (to.matched.some(record => record.meta.middlewareAuth)) {                
-        if (!auth.check()) {
-            next({
-                path: '/login',
-                query: { redirect: to.fullPath }
-            });
+  if (to.matched.some(record => record.meta.middlewareAuth)) {
+    if (!auth.check()) {
+      next({
+        path: 'auth/login',
+        query: { redirect: to.fullPath }
+      })
 
-            return;
-        }
+      return
     }
+  }
+
   next()
 })
 
@@ -51,7 +52,8 @@ router.afterEach((to, from) => {
 /* eslint-disable no-new */
 
 window.auth = auth
-window.Event = new Vue
+window.Event = new Vue()
+
 
 new Vue({
   el: '#app',
