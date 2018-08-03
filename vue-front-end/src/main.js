@@ -40,6 +40,7 @@ router.beforeEach((to, from, next) => {
       return
     }
   }
+
   next()
 })
 
@@ -52,6 +53,7 @@ router.afterEach((to, from) => {
 
 window.auth = auth
 window.Event = new Vue()
+
 
 new Vue({
   el: '#app',

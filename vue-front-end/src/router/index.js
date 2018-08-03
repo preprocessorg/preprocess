@@ -82,6 +82,7 @@ export default new Router({
           component: lazyLoading('dashboard/Dashboard'),
           default: true,
           meta: { middlewareAuth: true }
+
         },
         {
           path: 'statistics',
