@@ -14,5 +14,4 @@ As tecnologias utilizadas no desenvolvimento serão:
 - Python para execução das tarefas de limpeza de dados. Bibliotecas como Pandas, Numpy, Sklearn, Matplotlib e Plotly serão como apoio.
 - Banco de dados: MongoDB 
 
-![alt text](https://github.com/preprocessorg/preprocess/blob/master/Estrutura-menor.jpeg)
-
+<img src="https://github.com/preprocessorg/preprocess/blob/master/Estrutura.jpeg" width="500">
