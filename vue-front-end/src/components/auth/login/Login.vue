@@ -1,21 +1,21 @@
 <template>
   <div class="login">
     <h2>{{'auth.welcome' | translate}}</h2>
-    <form method="post" @submit.prevent="login" name="login">
+    <form method="post" @submit.prevent="submit" name="login">
       <div class="form-group">
         <div class="input-group">
-          <input type="text" id="email" required="required" v-model="auth.email"/>
-          <label class="control-label" for="email">{{'auth.email' | translate}}</label><i class="bar"></i>
+          <input type="text" id="email" required="required" v-model="email"/>
+          <label class="control-label" for="email" >{{'auth.email' | translate}}</label><i class="bar"></i>
         </div>
       </div>
       <div class="form-group">
         <div class="input-group">
-          <input type="password" id="password" required="required" v-model="auth.password"/>
-          <label class="control-label" for="password">{{'auth.password' | translate}}</label><i class="bar"></i>
+          <input type="password" id="password" required="required" v-model="password"/>
+          <label class="control-label" for="password" >{{'auth.password' | translate}}</label><i class="bar"></i>
         </div>
       </div>
       <div class="d-flex flex-column flex-lg-row align-items-center justify-content-between down-container">
-        <button class="btn btn-primary" type="submit" >
+        <button class="btn btn-primary" type="button" @click="login">
           {{'auth.login' | translate}}
         </button>
         <router-link class='link' :to="{name: 'signup'}">{{'auth.createAccount' | translate}}</router-link>
@@ -25,50 +25,58 @@
 </template>
 
 <script>
+import axios from 'axios'
+import auth from '../auth.js'
+
+window.auth = auth
 export default {
   name: 'login',
   data () {
     return {
-      auth: {
-        email: '',
-        password: ''
-      }
+      email: '',
+      password: '',
     }
   },
   methods: {
     login () {
-      let uri = 'http://localhost:8000/auth/login'
-      this.axios.post(uri, this.auth).then(response => {
-        this.$router.push({ name: 'Dashboard' })
+      let data = {
+        email: this.email,
+        password: this.password
+      }
+      axios.post('http://127.0.0.1:8000/api/auth/login', data)
+      .then(({data}) => {
+        auth.login(data.token, data.user)
+
+        this.$router.push('admin/dashboard')
       })
-    },
-    currentLanguage () {
-        return Vue.i18n.locale() === 'en' ? 'gb' : Vue.i18n.locale()
-    },
+      .catch(({response}) => {
+        alert(response.data.message)
+      })
+    }
   }
 }
 </script>
 
 <style lang="scss">
-.login {
-  @include media-breakpoint-down(md) {
-    width: 100%;
-    padding-right: 2rem;
-    padding-left: 2rem;
-    .down-container {
-      .link {
-        margin-top: 2rem;
+  .login {
+    @include media-breakpoint-down(md) {
+      width: 100%;
+      padding-right: 2rem;
+      padding-left: 2rem;
+      .down-container {
+        .link {
+          margin-top: 2rem;
+        }
       }
     }
-  }
 
-  h2 {
-    text-align: center;
-  }
-  width: 21.375rem;
+    h2 {
+      text-align: center;
+    }
+    width: 21.375rem;
 
-  .down-container {
-    margin-top: 3.125rem;
+    .down-container {
+      margin-top: 3.125rem;
+    }
   }
-}
 </style>

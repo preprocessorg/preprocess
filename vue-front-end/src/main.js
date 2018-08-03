@@ -12,7 +12,7 @@ import router from './router'
 import VuesticPlugin from 'vuestic-theme/vuestic-plugin'
 import './i18n'
 import YmapPlugin from 'vue-yandex-maps'
-
+import auth from './components/auth/auth.js'
 
 Vue.use(VuesticPlugin)
 Vue.use(YmapPlugin)
@@ -30,6 +30,16 @@ let mediaHandler = () => {
 
 router.beforeEach((to, from, next) => {
   store.commit('setLoading', true)
+  if (to.matched.some(record => record.meta.middlewareAuth)) {
+    if (!auth.check()) {
+      next({
+        path: 'auth/login',
+        query: { redirect: to.fullPath }
+      })
+
+      return
+    }
+  }
   next()
 })
 
@@ -39,6 +49,9 @@ router.afterEach((to, from) => {
 })
 
 /* eslint-disable no-new */
+
+window.auth = auth
+window.Event = new Vue()
 
 new Vue({
   el: '#app',

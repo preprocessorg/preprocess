@@ -4,13 +4,13 @@
     <form method="post" action="/auth/signup" name="signup">
       <div class="form-group">
         <div class="input-group">
-          <input type="text" id="email" required="required" v-model="auth.email"/>
+          <input type="text" id="email" required="required"/>
           <label class="control-label" for="email">{{'auth.email' | translate}}</label><i class="bar"></i>
         </div>
       </div>
       <div class="form-group">
         <div class="input-group">
-          <input type="password" id="password" required="required" v-model="auth.password"/>
+          <input type="password" id="password" required="required"/>
           <label class="control-label" for="password">{{'auth.password' | translate}}</label><i class="bar"></i>
         </div>
       </div>
@@ -34,21 +34,9 @@
 <script>
   export default {
     name: 'signup',
-    checkboxOneModel: true,
     data () {
       return {
-        auth: {
-          email: '',
-          password: ''
-        }
-      }
-    },
-    methods: {
-      login () {
-        let uri = 'http://localhost:8000/auth/register'
-        this.axios.post(uri, this.auth).then(response => {
-          this.$router.push({ name: 'Dashboard' })
-        })
+        checkboxOneModel: true
       }
     }
   }

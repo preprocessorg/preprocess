@@ -13,7 +13,7 @@ module.exports = {
   extends: 'standard',
   // required to lint *.vue files
   plugins: [
-    'html', 'vue'
+    'html'
   ],
   // add your custom rules here
   'rules': {
@@ -24,6 +24,7 @@ module.exports = {
     'generator-star-spacing': 0,
     'no-multiple-empty-lines': 0,
     'no-mixed-operators': 0,
+    "no-useless-constructor": 0,
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
   }

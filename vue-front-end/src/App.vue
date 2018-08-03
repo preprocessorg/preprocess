@@ -5,8 +5,24 @@
 </template>
 
 <script>
+  import auth from './components/auth/auth.js'
+  window.auth = auth
+
   export default {
-    name: 'app'
+    name: 'app',
+    data () {
+      return {
+        authenticated: auth.check(),
+        user: auth.user
+      }
+    },
+
+    mounted () {
+      Event.$on('userLoggedIn', () => {
+        this.authenticated = true
+        this.user = auth.user
+      })
+    },
   }
 </script>
 
