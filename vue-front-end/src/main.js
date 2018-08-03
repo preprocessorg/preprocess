@@ -41,6 +41,7 @@ router.afterEach((to, from) => {
 /* eslint-disable no-new */
 
 window.auth = auth
+window.Event = new Vue
 
 new Vue({
   el: '#app',
