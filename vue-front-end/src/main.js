@@ -12,7 +12,7 @@ import router from './router'
 import VuesticPlugin from 'vuestic-theme/vuestic-plugin'
 import './i18n'
 import YmapPlugin from 'vue-yandex-maps'
-
+import auth from './components/auth/auth.js'
 
 Vue.use(VuesticPlugin)
 Vue.use(YmapPlugin)
@@ -39,6 +39,8 @@ router.afterEach((to, from) => {
 })
 
 /* eslint-disable no-new */
+
+window.auth = auth
 
 new Vue({
   el: '#app',
