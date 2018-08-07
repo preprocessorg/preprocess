@@ -45,7 +45,7 @@ export default {
       }
       axios.post('http://127.0.0.1:8000/api/auth/login', data)
       .then(({data}) => {
-        auth.login(data.token, data.user)
+        auth.login(data.access_token, data.user)
 
         this.$router.push('admin/dashboard')
       })

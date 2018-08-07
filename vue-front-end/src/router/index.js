@@ -33,7 +33,7 @@ export default new Router({
     ...demoRoutes,
     {
       path: '*',
-      redirect: { name: 'dashboard' }
+      redirect: { name: 'dashboard' },
     },
     {
       path: '/auth',
@@ -80,9 +80,8 @@ export default new Router({
           name: 'dashboard',
           path: 'dashboard',
           component: lazyLoading('dashboard/Dashboard'),
+          meta: { middlewareAuth: true },
           default: true,
-          meta: { middlewareAuth: true }
-
         },
         {
           path: 'statistics',

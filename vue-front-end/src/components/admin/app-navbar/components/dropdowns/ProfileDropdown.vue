@@ -19,25 +19,43 @@
 </template>
 
 <script>
-  export default {
-    name: 'profile-section',
+import axios from 'axios'
 
-    props: {
-      options: {
-        type: Array,
-        default: () => [
-          {
-            name: 'profile',
-            redirectTo: '',
-          },
-          {
-            name: 'logout',
-            redirectTo: 'login'
-          }
-        ]
+export default {
+  name: 'profile-section',
+
+  props: {
+    options: {
+      type: Array,
+      default: () => [
+        {
+          name: 'profile',
+          redirectTo: '',
+        },
+        {
+          name: 'logout',
+          redirectTo: 'login'
+        }
+      ]
+    }
+  },
+
+  methods: {
+    login () {
+      let data = {
+        email: this.email,
+        password: this.password
       }
-    },
+      axios.post('http://127.0.0.1:8000/api/auth/logoff', data)
+      .then(({data}) => {
+        this.$router.push('admin/login')
+      })
+      .catch(({response}) => {
+        alert(response.data.message)
+      })
+    }
   }
+}
 </script>
 
 <style lang="scss">

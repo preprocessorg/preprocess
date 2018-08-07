@@ -6,7 +6,6 @@
     "type": "project",
     "require": {
         "php": "^7.1.3",
-        "designmynight/laravel-mongodb-passport": "^1.1",
         "fideloper/proxy": "^4.0",
         "jenssegers/mongodb": "^3.4",
         "laravel/framework": "5.6.*",

@@ -1,4 +1,5 @@
 import axios from './../../../node_modules/axios'
+
 class Auth {
   constructor () {
     this.token = null

@@ -14,6 +14,8 @@ import './i18n'
 import YmapPlugin from 'vue-yandex-maps'
 import auth from './components/auth/auth.js'
 
+window.Event = new Vue()
+
 Vue.use(VuesticPlugin)
 Vue.use(YmapPlugin)
 
@@ -52,8 +54,6 @@ router.afterEach((to, from) => {
 /* eslint-disable no-new */
 
 window.auth = auth
-window.Event = new Vue()
-
 
 new Vue({
   el: '#app',
