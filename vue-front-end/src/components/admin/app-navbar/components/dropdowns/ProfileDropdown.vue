@@ -14,6 +14,11 @@
           </router-link>
         </div>
       </div>
+      <div class="dropdown-menu-content">
+        <div class="dropdown-item plain-link-item">
+          <a @click="logout" class="plain-link" href="#">{{'auth.logout' | translate}}</a>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -31,24 +36,17 @@ export default {
         {
           name: 'profile',
           redirectTo: '',
-        },
-        {
-          name: 'logout',
-          redirectTo: 'login'
         }
       ]
     }
   },
 
   methods: {
-    login () {
-      let data = {
-        email: this.email,
-        password: this.password
-      }
-      axios.post('http://127.0.0.1:8000/api/auth/logoff', data)
+    logout () {
+      axios.post('http://127.0.0.1:8000/api/auth/logout')
       .then(({data}) => {
-        this.$router.push('admin/login')
+        alert(data.message)
+        this.$router.push('/auth/login')
       })
       .catch(({response}) => {
         alert(response.data.message)

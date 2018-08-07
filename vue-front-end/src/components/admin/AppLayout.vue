@@ -12,13 +12,15 @@
 </template>
 
 <script>
-
+  import Vue from 'vue'
   import VuesticLayout from '../../vuestic-theme/vuestic-components/vuestic-layout/VuesticLayout'
   import AppNavbar from './app-navbar/AppNavbar'
   import AppSidebar from './app-sidebar/AppSidebar'
   import AppBreadcrumbs from './app-breadcrumbs/AppBreadcrumbs'
   import Layout from 'vuestic-theme/vuestic-directives/Layout'
   import {mapGetters} from 'vuex'
+
+  window.Event = new Vue()
 
   export default {
     name: 'app-layout',
