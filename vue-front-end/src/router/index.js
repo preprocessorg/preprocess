@@ -77,11 +77,17 @@ export default new Router({
       component: AppLayout,
       children: [
         {
+          name: 'dataset',
+          path: 'dataset',
+          component: lazyLoading('dataset/Dataset'),
+          meta: { middlewareAuth: true },
+          default: true,
+        },
+        {
           name: 'dashboard',
           path: 'dashboard',
           component: lazyLoading('dashboard/Dashboard'),
-          meta: { middlewareAuth: true },
-          default: true,
+          meta: { middlewareAuth: true }
         },
         {
           path: 'statistics',

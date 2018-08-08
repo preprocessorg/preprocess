@@ -5,6 +5,10 @@ export default {
   },
   routes: [
     {
+      path: 'dataset',
+      displayName: 'menu.dataset'
+    },
+    {
       path: 'dashboard',
       displayName: 'menu.dashboard'
     },

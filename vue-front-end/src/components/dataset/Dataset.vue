@@ -2,7 +2,7 @@
   <div>
     <div class="row">
       <div class="col-md-12">
-        <vuestic-widget :headerText="$t('tables.styled')">
+        <vuestic-widget :headerText="$t('menu.dataset')">
           <div class="table-responsive">
             <table class="table table-striped table-sm color-icon-label-table">
               <thead>
@@ -97,32 +97,14 @@
           </div>
         </vuestic-widget>
       </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-12">
-        <vuestic-widget :headerText="$t('tables.advanced')">
-          <vuestic-data-table
-            :apiUrl="apiUrl"
-            :tableFields="tableFields"
-            :itemsPerPage="itemsPerPage"
-            :defaultPerPage="defaultTablePerPage"
-            :sortFunctions="sortFunctions"
-            :apiMode="apiMode"
-            :paginationPath="paginationPath"
-            :queryParams="queryParams"
-          >
-            <spring-spinner
-              slot="loading"
-              :animation-duration="2500"
-              :size="70"
-              color="#4ae387"
-            />
-          </vuestic-data-table>
-        </vuestic-widget>
+      <div class="float">
+      <button class="btn btn-primary btn-with-icon rounded-icon" title="{{'menu.dataset' | translate}}">
+        <div class="btn-with-icon-content">
+          <i class="ion ion-md-add"></i>
+        </div>
+      </button>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -162,5 +144,15 @@
     td:first-child {
       width: 1rem;
     }
+  }
+
+  .float{
+    position:fixed;
+    width:60px;
+    height:60px;
+    bottom:40px;
+    right:40px;
+    border-radius:50px;
+    text-align:center;
   }
 </style>

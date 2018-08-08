@@ -1,5 +1,6 @@
 import axios from './../../../node_modules/axios'
-
+/* import api from '../../api' */
+axios.defaults.baseURL = 'http://127.0.0.1:8000'
 class Auth {
   constructor () {
     this.token = window.localStorage.getItem('token')
@@ -9,6 +10,7 @@ class Auth {
 
     if (this.token) {
       axios.defaults.headers.common['Authorization'] = 'Bearer ' + this.token
+      this.getUser()
     }
   }
 
@@ -26,6 +28,25 @@ class Auth {
 
   check () {
     return !!this.token
+  }
+
+  getUser () {
+    axios.get('/api/auth/get-user')
+        .then(({data}) => {
+          this.user = data
+        })
+        .catch(({response}) => {
+          if (response.status === 401) {
+            this.logout()
+          }
+        })
+  }
+
+  logout (token, user) {
+    window.localStorage.removeItem('token')
+    window.localStorage.removeItem('user')
+    this.token = ''
+    this.user = ''
   }
 }
 

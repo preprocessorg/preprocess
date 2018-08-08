@@ -171,6 +171,7 @@
     "charts": "Charts",
     "colorPickers": "Color Pickers",
     "dashboard": "Dashboard",
+    "dataset": "Dataset",
     "extra": "Extra",
     "formElements": "Form Elements",
     "forms": "Forms",
@@ -194,7 +195,6 @@
     "uiElements": "UI Elements",
     "treeView": "Tree view",
     "dateTimePickers": "Date time pickers",
-    "cards": "Cards",
     "fileUpload": "File Upload"
   },
   "messages": {

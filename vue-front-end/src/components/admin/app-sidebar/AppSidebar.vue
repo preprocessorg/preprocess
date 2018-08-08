@@ -1,6 +1,14 @@
 <template>
   <vuestic-sidebar :hidden="isOpen">
     <template slot="menu">
+       <sidebar-link
+        :to="{ name: 'dataset' }">
+        <span slot="title">
+          <span
+            class="sidebar-menu-item-icon fa fa-database"></span>
+          <span>{{ $t('menu.dataset') }}</span>
+        </span>
+      </sidebar-link>
       <sidebar-link
         :to="{ name: 'dashboard' }">
         <span slot="title">

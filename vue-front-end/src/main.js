@@ -12,7 +12,11 @@ import router from './router'
 import VuesticPlugin from 'vuestic-theme/vuestic-plugin'
 import './i18n'
 import YmapPlugin from 'vue-yandex-maps'
+import Api from './api.js'
 import auth from './components/auth/auth.js'
+
+
+window.api = new Api()
 
 window.Event = new Vue()
 
@@ -35,9 +39,15 @@ router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.middlewareAuth)) {
     if (!auth.check()) {
       next({
-        path: 'auth/login',
+        path: '/auth/login',
         query: { redirect: to.fullPath }
       })
+      if (window.localStorage.getItem('token')) {
+        next({
+          path: '/auth/login',
+          query: { redirect: to.fullPath }
+        })
+      }
 
       return
     }
