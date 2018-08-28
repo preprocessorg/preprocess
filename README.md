@@ -8,10 +8,10 @@ Fornecer ferramentas que possibilitem automatizar ao máximo tarefas de limpeza 
 No que não for possível automatizar, fornecer ferramentas para tornar o processo o mais simples possível em termos de utilização, mas com recursos verdadeiramente úteis, como análises estatísticas e gráficos de apoio.
 ### Especificações
 As tecnologias utilizadas no desenvolvimento serão:
-- Front-End: AdminLTE gerenciado pelo Laravel
+- Front-End: Baseado no Vuestic https://github.com/epicmaxco/vuestic-admin
 - Backend: 
-- Laravel para controle de aplicação e gerenciamento de banco de dados.
-- Python para execução das tarefas de limpeza de dados. Bibliotecas como Pandas, Numpy, Sklearn, Matplotlib e Plotly serão como apoio.
+  - Laravel para controle de aplicação e gerenciamento de banco de dados.
+  - Python para execução das tarefas de limpeza de dados. Bibliotecas como Pandas, Numpy, Sklearn, Matplotlib e Plotly serão como apoio.
 - Banco de dados: MongoDB 
 
 <img src="https://github.com/preprocessorg/preprocess/blob/master/Estrutura.jpeg" width="500">
