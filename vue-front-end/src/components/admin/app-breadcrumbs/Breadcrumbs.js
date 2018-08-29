@@ -6,7 +6,14 @@ export default {
   routes: [
     {
       path: 'dataset',
-      displayName: 'menu.dataset'
+      displayName: 'menu.dataset',
+      disabled: true,
+      children: [
+        {
+          path: 'newDataset',
+          displayName: 'menu.new'
+        }
+      ]
     },
     {
       path: 'dashboard',

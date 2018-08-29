@@ -24,7 +24,8 @@
     "main": "Primeiro & Segundo Botão",
     "micro": "MICRO",
     "pressed": "PRESSIONADO",
-    "small": "PEQUENO"
+    "small": "PEQUENO",
+    "actions": "Ações"
   },
   "charts": {
     "horizontalBarChart": "Barra de Gráfico Horizontal",
@@ -111,7 +112,10 @@
       "textInputWithDescription": "Entrada de Texto (com descrição)",
       "textArea": "Área de Texto",
       "title": "Entrada",
-      "upload": "UPLOAD"
+      "upload": "UPLOAD",
+      "dataset": {
+        "name": "Nome da Fonte de Dados"
+      }
     },
     "mediumEditor": {
       "title": "Editor Medium"
@@ -184,7 +188,8 @@
     "typography": "Tipografia",
     "uiElements": "Elementos UI",
     "treeView": "Árvore de visualização",
-    "dateTimePickers": "Selecionar Data e Hora"
+    "dateTimePickers": "Selecionar Data e Hora",
+    "new": "Novo"
   },
   "messages": {
     "all": "Ver todas as menssagens",
@@ -204,6 +209,23 @@
     "staticMessage": "Este é um modal é estático, clicar no pano de fundo não o fechará.",
     "staticTitle": "Modal Estático",
     "title": "Modals"
+  },
+  "fileUpload": {
+    "advancedMediaGallery": "Advanced, Media Gallery",
+    "advancedUploadList": "Advanced, Upload List",
+    "mediaGallery": "Media Gallery",
+    "uploadList": "Upload List",
+    "single": "Single",
+    "dragNdropFiles": "Drag’n’drop files or",
+    "uploadedOn": "Uploaded on",
+    "fileDeleted": "File was succesfully deleted.",
+    "undo": "Undo",
+    "preview": "Preview",
+    "delete": "Deletar",
+    "deleteFile": "Deletar file",
+    "uploadFile": "Carregar Arquivo",
+    "uploadMedia": "Upload media",
+    "addAttachment": "Add attachment"
   },
   "navbar": {
     "messageUs": "Enviar uma pergunta ou feedback para"
@@ -232,7 +254,10 @@
       "city": "Cidade",
       "email": "Email",
       "name": "Nome",
-      "score": "Contagem"
+      "score": "Contagem",
+      "file": "Caminho do Arquivo",
+      "type": "Tipo de Arquivo",
+      "size": "Tamanho do Arquivo"
     },
     "dataTable": {
       "noDataAvailable": "No Data Available"

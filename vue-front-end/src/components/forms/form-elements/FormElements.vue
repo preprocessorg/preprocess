@@ -114,11 +114,15 @@
                   <div class="form-group form-group-w-btn">
                     <div class="input-group">
                       <input id="input-w-btn" required/>
-                      <label class="control-label" for="input-w-btn">{{'forms.inputs.inputWithButton'
-                        | translate}}</label><i class="bar"></i>
-                    </div>
-                    <div class="btn btn-micro btn-primary">
-                      {{'forms.inputs.upload' | translate}}
+                      <label class="control-label" v-if="value" for="input-w-btn">{{'forms.inputs.file'
+                        | translate}}</label>
+                      <label class="control-label" for="input-w-btn">{{'forms.inputs.selectFile'
+                        | translate}}</label>
+                        <i class="bar"></i>
+
+                      <div class="btn btn-micro btn-primary">
+                        {{'forms.inputs.upload' | translate}}
+                      </div>
                     </div>
                   </div>
                   <div class="form-group form-group-w-btn">

@@ -25,7 +25,8 @@
     "main": "Primary & Secondary Buttons",
     "micro": "MICRO",
     "pressed": "PRESSED",
-    "small": "SMALL"
+    "small": "SMALL",
+    "actions": "Actions"
   },
   "charts": {
     "horizontalBarChart": "Horizontal Bar Chart",
@@ -119,7 +120,10 @@
       "textInputWithDescription": "Text Input (with description)",
       "textArea": "Text Area",
       "title": "Inputs",
-      "upload": "UPLOAD"
+      "upload": "UPLOAD",
+      "dataset": {
+        "name": "Dataset's Name"
+      }
     },
     "mediumEditor": {
       "title": "Medium Editor"
@@ -195,7 +199,8 @@
     "uiElements": "UI Elements",
     "treeView": "Tree view",
     "dateTimePickers": "Date time pickers",
-    "fileUpload": "File Upload"
+    "fileUpload": "File Upload",
+    "new": "New"
   },
   "messages": {
     "all": "See all messages",
@@ -265,7 +270,10 @@
       "city": "City",
       "email": "Email",
       "name": "Name",
-      "score": "Score"
+      "score": "Score",
+      "file": "File Path",
+      "type": "File Type",
+      "size": "File Size"
     },
     "dataTable": {
       "noDataAvailable": "No Data Available"

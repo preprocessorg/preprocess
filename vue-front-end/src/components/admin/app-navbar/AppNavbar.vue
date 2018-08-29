@@ -2,7 +2,7 @@
 
   <vuestic-navbar>
     <header-selector slot="selector" :isOpen.sync="valueProxy"/>
-    <span slot="logo" class="i-vuestic"></span>
+    <span slot="logo" class="">PREPROCESS</span>
     <span slot="center">
       {{$t('navbar.messageUs')}}&nbsp;<a href="mailto:hello@epicmax.co">hello@epicmax.co</a>
     </span>
