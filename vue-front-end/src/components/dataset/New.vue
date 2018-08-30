@@ -6,17 +6,27 @@
           <form>
 
             <div class="row">
-              <div class="col-md-10">
+              <div class="col-md-12 align-items-center justify-content-center">
                 <fieldset>
                   <div class="form-group">
                     <div class="input-group">
-                      <input id="simple-input" required/>
+                      <input id="name" required v-model="name"/>
                       <label class="control-label" for="simple-input">{{'forms.inputs.dataset.name'
                       | translate}}</label><i class="bar"></i>
                     </div>
                   </div>
-                  <vuestic-file-upload type="single" v-model="single"/>
+                  <div class="form-group">
+                    <vuestic-file-upload type="single" v-model="single" />
+                  </div>
                 </fieldset>
+                <div>
+                  <button class="btn btn-primary btn-sm" @click="newDataset">
+                    {{'cards.button.confirm' | translate}}
+                  </button>
+                  <button class="btn btn-secondary btn-sm">
+                    {{'cards.button.cancel' | translate}}
+                  </button>
+                </div>
               </div>
             </div>
           </form>
@@ -27,7 +37,8 @@
 </template>
 
 <script>
-  import CountriesList from 'data/CountriesList'
+  import axios from 'axios'
+  import Papa from 'papaparse'
 
   export default {
     name: 'new',
@@ -43,53 +54,33 @@
     },
     data () {
       return {
-        single: [],
-        isMale: true,
-        value: '',
-        countriesList: CountriesList,
-        chosenCountry: '',
-        clearableText: '',
-        successfulEmail: 'andrei@dreamsupport.io',
-        wrongEmail: 'andrei@dreamsupport',
-        simpleOptions: [
-          {
-            id: 1,
-            description: 'First option',
-          },
-          {
-            id: 2,
-            description: 'Second option',
-          },
-          {
-            id: 3,
-            description: 'Third option',
-          },
-        ],
-        simpleSelectModel: '',
-        multiSelectModel: [],
-        multiSelectCountriesModel: [],
-        radioModel: 'option1',
-        radioDisabledModel: 'option4',
-        checkboxOneModel: false,
-        checkboxTwoModel: true,
-        checkboxThreeModel: false,
-        checkboxFourModel: true,
-        checkboxFiveModel: false,
-        checkboxSixModel: true,
-        checkboxSevenModel: false,
-        checkboxEightModel: true,
-        datepicker: {
-          simple: '2018-05-09',
-          time: '2018-05-08 14:10',
-          range: '2018-05-08 to 2018-05-23',
-          disabled: '2018-05-09',
-          multiple: '2018-04-25, 2018-04-27',
-        },
+        name: '',
+        single: []
       }
     },
     methods: {
       clear (field) {
         this[field] = ''
+      },
+      newDataset () {
+        var e = this.single[0]
+        Papa.parse(e, {
+          complete: function (results) {
+            console.log('Finished:', results.data)
+            this.file = results.data
+          }
+        })
+        let data = {
+          file: this.file,
+          name: this.name
+        }
+        axios.post('http://127.0.0.1:8000/api/dataset', data)
+        .then(({data}) => {
+          alert('OK')
+        })
+        .catch(({response}) => {
+          alert(response.data.message)
+        })
       }
     },
     created () {

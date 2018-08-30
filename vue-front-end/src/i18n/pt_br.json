@@ -214,18 +214,18 @@
     "advancedMediaGallery": "Advanced, Media Gallery",
     "advancedUploadList": "Advanced, Upload List",
     "mediaGallery": "Media Gallery",
-    "uploadList": "Upload List",
-    "single": "Single",
+    "uploadList": "Selecionar lista",
+    "single": "Único",
     "dragNdropFiles": "Drag’n’drop files or",
     "uploadedOn": "Uploaded on",
-    "fileDeleted": "File was succesfully deleted.",
-    "undo": "Undo",
+    "fileDeleted": "Arquivo foi deletado com sucesso.",
+    "undo": "Desfazer",
     "preview": "Preview",
     "delete": "Deletar",
-    "deleteFile": "Deletar file",
-    "uploadFile": "Carregar Arquivo",
-    "uploadMedia": "Upload media",
-    "addAttachment": "Add attachment"
+    "deleteFile": "Deletar arquivo",
+    "uploadFile": "Selecionar Arquivo",
+    "uploadMedia": "Selecionar mídia",
+    "addAttachment": "Adicionar anexo"
   },
   "navbar": {
     "messageUs": "Enviar uma pergunta ou feedback para"
@@ -274,5 +274,39 @@
     "selectable": "Selecionável",
     "editable": "Editável",
     "advanced": "Advançado"
+  },
+  "cards": {
+    "cards": "Cards",
+    "fixed": "Fixed",
+    "floating": "Floating",
+    "contentText": "The unique stripes of zebras make them one of the animals most familiar to people.",
+    "rowHeight": "Row height",
+    "title": {
+      "dark": "Dark background",
+      "bright": "Very bright card",
+      "titleOnImageNoOverlay": "Title on image, but no overlay",
+      "normal": "Perfectly normal card",
+      "overlayAndTextOnImage": "Card with overlay and text on top of image",
+      "stripeNoImage": "Striped card without image"
+    },
+    "button": {
+      "main": "Principal",
+      "cancel": "Cancelar",
+      "confirm": "Confirmar"
+    },
+    "link": {
+      "edit": "Edit",
+      "setAsDefault": "Set as default",
+      "delete": "Delete",
+      "traveling": "Traveling",
+      "france": "France",
+      "review": "Review",
+      "feedback": "Leave feedback",
+      "readFull": "Read full article",
+      "secondaryAction": "Secondary action",
+      "action1": "Action 1",
+      "action2": "Action 2"
+    }
   }
+
 }
