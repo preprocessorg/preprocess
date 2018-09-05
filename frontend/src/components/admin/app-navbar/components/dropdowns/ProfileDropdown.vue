@@ -1,0 +1,79 @@
+<template>
+  <div class="profile-dropdown col nav-item dropdown navbar-dropdown" v-dropdown>
+    <a class="nav-link dropdown-toggle" href="#">
+      <span class="profile-section-avatar-container">
+        <slot></slot>
+      </span>
+    </a>
+    <div class="dropdown-menu last">
+      <div class="dropdown-menu-content">
+        <div v-for="(option, id) in options" :key="id"
+          class="dropdown-item plain-link-item">
+          <router-link :to="{name: option.redirectTo}" class="plain-link" href="#">
+            {{ `user.${option.name}` | translate}}
+          </router-link>
+        </div>
+      </div>
+      <div class="dropdown-menu-content">
+        <div class="dropdown-item plain-link-item">
+          <a @click="logout" class="plain-link" href="#">{{'auth.logout' | translate}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import axios from 'axios'
+
+export default {
+  name: 'profile-section',
+
+  props: {
+    options: {
+      type: Array,
+      default: () => [
+        {
+          name: 'profile',
+          redirectTo: '',
+        }
+      ]
+    }
+  },
+
+  methods: {
+    logout () {
+      axios.post('http://127.0.0.1:8000/api/auth/logout')
+      .then(({data}) => {
+        alert(data.message)
+        this.$router.push('/auth/login')
+      })
+      .catch(({response}) => {
+        alert(response.data.message)
+      })
+    }
+  }
+}
+</script>
+
+<style lang="scss">
+  .profile-dropdown {
+
+    .profile-section-avatar-container {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      background-color: white;
+      border-radius: 50%;
+      border: 2px solid $lighter-gray;
+      overflow: hidden;
+
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+  }
+
+</style>
