@@ -1,7 +1,7 @@
 <template>
   <div class="made-by-component">
     <span>
-        ©2018. Made by &nbsp
+        Preprocess ©2018 - Layout Made by &nbsp;
         <a href="http://epicmax.co"> Epicmax</a>
     </span>
   </div>

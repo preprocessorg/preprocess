@@ -85,12 +85,14 @@ export default new Router({
             {
               name: 'newDataset',
               path: 'new',
-              component: lazyLoading('dataset/New')
+              component: lazyLoading('dataset/New'),
+              meta: { middlewareAuth: true }
             },
             {
               name: 'dataset',
               path: '',
               component: lazyLoading('dataset/Dataset'),
+              meta: { middlewareAuth: true }
             }
           ]
         },

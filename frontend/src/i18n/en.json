@@ -10,7 +10,8 @@
     "password": "Password",
     "signUp": "Sign Up",
     "termsOfUse": "Terms of Use.",
-    "welcome": "Welcome!"
+    "welcome": "Welcome!",
+    "name": "Name"
   },
   "breadcrumbs": {
     "home": "Home"
@@ -123,7 +124,8 @@
       "upload": "UPLOAD",
       "dataset": {
         "name": "Dataset's Name"
-      }
+      },
+      "inputRequired": "is required!"
     },
     "mediumEditor": {
       "title": "Medium Editor"
@@ -133,7 +135,8 @@
       "countryMulti": "Country Multi Select",
       "multi": "Multi Select",
       "simple": "Simple Select",
-      "title": "Selects"
+      "title": "Selects",
+      "delimiter": "Delimiter"
     },
     "wizard": {
       "name": "Name",

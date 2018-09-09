@@ -16,8 +16,14 @@ class CreateDatasetsTable extends Migration
         Schema::create('datasets', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('name');
-            $table->array('file');
+            $table->text('file');
             $table->text('type');
+            $table->text('delimiter');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->
+                references('id')->
+                on('datasets')->
+                onDelete('restrict');
             $table->softDeletes();
             $table->timestamps();
         });

@@ -25,6 +25,7 @@
 
 <script>
 import axios from 'axios'
+import auth from '../../../../auth/auth.js'
 
 export default {
   name: 'profile-section',
@@ -46,6 +47,7 @@ export default {
       axios.post('http://127.0.0.1:8000/api/auth/logout')
       .then(({data}) => {
         alert(data.message)
+        auth.logout()
         this.$router.push('/auth/login')
       })
       .catch(({response}) => {

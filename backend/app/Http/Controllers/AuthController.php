@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\User;
+use Validator;
 class AuthController extends Controller
 {
     /**
@@ -18,11 +19,28 @@ class AuthController extends Controller
      */
     public function signup(Request $request)
     {
-        $request->validate([
+        /*$messages = [
+            'required' => 'The :attribute field is required.',
+            'unique' => ':attribute unico'
+        ];*/
+
+        $v = Validator::make($request->all(), [
             'name' => 'required|string',
             'email' => 'required|string|email|unique:users',
-            'password' => 'required|string|confirmed'
-        ]);
+            'password' => 'required|string' //|confirmed'
+        ]/*,$messages*/);
+
+        if ($v->fails())
+        {
+            return response()->json(['message' => $v->errors(),], 400);
+        }
+
+       /* $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|string|email|unique:users',
+            'password' => 'required|string' //|confirmed'
+        ]);*/
+
         $user = new User([
             'name' => $request->name,
             'email' => $request->email,

@@ -125,7 +125,8 @@
       "countryMulti": "Selecionar Multiplas Regiões",
       "multi": "Selecionar Múltiplos",
       "simple": "Selecionador Simples",
-      "title": "Selecionadores"
+      "title": "Selecionadores",
+      "delimiter": "Delimitador"
     },
     "wizard": {
       "name": "Nome",

@@ -40,6 +40,9 @@
     methods: {
       hide () {
         this.hidden = true
+      },
+      show () {
+        this.hidden = false
       }
     }
   }
