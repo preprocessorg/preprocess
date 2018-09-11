@@ -24,6 +24,7 @@ Route::middleware('auth:api')->group(function () {
     Route::post('auth/logout', 'AuthController@logout');
     Route::get('auth/get-user', 'AuthController@getUser');
     Route::post('dataset', 'Dataset\DatasetController@store');
+    Route::get('dataset', 'Dataset\DatasetController@index');
 });
 
 

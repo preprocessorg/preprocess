@@ -6,9 +6,11 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use Validator;
+use Auth;
 
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+
 
 use App\Dataset;
 
@@ -17,7 +19,9 @@ class DatasetController extends Controller
     //
     public function index()
     {
-        $datasets = Dataset::all();
+        $user = Auth::guard('api')->user();
+        #$datasets = Dataset::all();
+        $datasets = Dataset::where('user_id', $user->id)->paginate(5);
         return response()->json($datasets);
     }
 

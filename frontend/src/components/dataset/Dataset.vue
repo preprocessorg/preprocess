@@ -3,30 +3,23 @@
     <div class="row">
       <div class="col-md-12">
         <vuestic-widget :headerText="$t('menu.dataset')">
-          <div class="table-responsive">
-            <table class="table table-striped table-sm color-icon-label-table">
-              <thead>
-              <tr>
-                <td></td>
-                <td>{{'tables.headings.name' | translate}}</td>
-                <td>{{'tables.headings.file' | translate}}</td>
-                <td>{{'tables.headings.type' | translate}}</td>
-                <td align="middle">{{'buttons.actions' | translate}}</td>
-                <td align="middle">{{'tables.headings.size' | translate}}</td>
-              </tr>
-              </thead>
-              <tbody>
-              <tr>
-                <td></td>
-                <td>Matthew McCormick</td>
-                <td>matthew30@mail.ol</td>
-                <td>Vancouver</td>
-                <td align="right">93</td>
-                <td align="middle"></td>
-              </tr>
-              </tbody>
-            </table>
-          </div>
+          <vuestic-data-table
+            :apiUrl="apiUrl"
+            :tableFields="tableFields"
+            :itemsPerPage="itemsPerPage"
+            :defaultPerPage="defaultTablePerPage"
+            :sortFunctions="sortFunctions"
+            :apiMode="apiMode"
+            :paginationPath="paginationPath"
+            :queryParams="queryParams"
+          >
+            <spring-spinner
+              slot="loading"
+              :animation-duration="2500"
+              :size="70"
+              color="#4ae387"
+            />
+          </vuestic-data-table>
         </vuestic-widget>
       </div>
       <div class="float">
@@ -45,8 +38,8 @@
 <script>
   import Vue from 'vue'
   import BadgeColumn from './BadgeColumn.vue'
-  import FieldsDef from 'vuestic-components/vuestic-datatable/data/fields-definition'
-  import ItemsPerPageDef from 'vuestic-components/vuestic-datatable/data/items-per-page-definition'
+  import FieldsDef from 'vuestic-components/vuestic-datatable/data/dataset/fields-definition'
+  import ItemsPerPageDef from 'vuestic-components/vuestic-datatable/data/dataset/items-per-page-definition'
   import QueryParams from 'vuestic-components/vuestic-datatable/data/query-params'
   import {SpringSpinner} from 'epic-spinners'
 
@@ -59,17 +52,25 @@
     },
     data () {
       return {
-        apiUrl: 'https://vuetable.ratiw.net/api/users',
+        apiUrl: 'http://127.0.0.1:8000/api/dataset',
         apiMode: true,
         tableFields: FieldsDef.tableFields,
         itemsPerPage: ItemsPerPageDef.itemsPerPage,
         sortFunctions: FieldsDef.sortFunctions,
         paginationPath: '',
-        defaultTablePerPage: 6,
+        defaultTablePerPage: 5,
         queryParams: QueryParams
       }
     }
   }
+
+  /* <vuestic-widget /*:headerText="$t('menu.dataset')">
+        <td></td>
+        <td>{{'tables.headings.name' | translate}}</td>
+        <td>{{'tables.headings.file' | translate}}</td>
+        <td>{{'tables.headings.type' | translate}}</td>
+        <td align="middle">{{'buttons.actions' | translate}}</td>
+        <td align="middle">{{'tables.headings.size' | translate}}</td> */
 </script>
 
 <style lang="scss">
